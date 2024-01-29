@@ -1,0 +1,11 @@
+*.class
+target/
+lib/
+.settings
+bin/
+logs/
+*.log
+.idea/
+*.iml
+*.iws
+*.ipr
