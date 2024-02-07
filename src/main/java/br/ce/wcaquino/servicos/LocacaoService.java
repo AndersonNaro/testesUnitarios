@@ -22,10 +22,17 @@ public class LocacaoService {
 			throw new LocadoraException("Filme vazio");
 		}
 
-		for (Filme filme : filmes) {
-			if (filme.getEstoque() == 0) {
+		for (int i = 0; i < filmes.size(); i++) {
+			if (filmes.get(i).getEstoque() == 0) {
 				throw new FilmeSemEstoqueException();
 			}
+			switch (i) {
+				case 2 : filmes.get(i).setPrecoLocacao(filmes.get(i).getPrecoLocacao() * .75); break;
+				case 3 : filmes.get(i).setPrecoLocacao(filmes.get(i).getPrecoLocacao() * .5); break;
+				case 4 : filmes.get(i).setPrecoLocacao(filmes.get(i).getPrecoLocacao() * .25); break;
+				case 5 : filmes.get(i).setPrecoLocacao(0d); break;
+			}
+
 		}
 
 		

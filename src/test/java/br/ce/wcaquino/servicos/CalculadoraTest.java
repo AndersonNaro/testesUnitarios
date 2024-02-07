@@ -4,7 +4,8 @@ import br.ce.wcaquino.exceptions.DivisaoPorZeroException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.rules.ErrorCollector;
+
+import static junit.framework.TestCase.assertEquals;
 
 public class CalculadoraTest {
 
@@ -24,7 +25,7 @@ public class CalculadoraTest {
         //ação
         int resultado = calculadora.soma(a, b);
         //verificação
-        Assert.assertEquals(14, resultado);
+        assertEquals(14, resultado);
     }
 
     @Test
@@ -36,7 +37,7 @@ public class CalculadoraTest {
         //ação
         int resultado = calculadora.subtrair(a, b);
         //Verificação
-        Assert.assertEquals(-4, resultado);
+        assertEquals(-4, resultado);
 
     }
 
@@ -49,8 +50,6 @@ public class CalculadoraTest {
         //ação
         int resultado = calculadora.dividir(a, b);
         //Verificação
-
-
     }
 
     @Test
@@ -62,10 +61,7 @@ public class CalculadoraTest {
         //ação
         int resultado = calculadora.dividir(a, b);
         //Verificação
-        Assert.assertEquals(3, resultado);
+        assertEquals(3, resultado);
 
     }
-
-
-
 }

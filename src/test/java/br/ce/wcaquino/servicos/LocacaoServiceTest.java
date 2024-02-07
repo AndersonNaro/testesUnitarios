@@ -112,4 +112,83 @@ public class LocacaoServiceTest {
 		//acao
 		service.alugarFilme(usuario, filmes);
 	}
+
+	@Test
+	public void deveDar25pctDescontoNoFilme3() throws FilmeSemEstoqueException, LocadoraException {
+		//cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		List<Filme> filmes = Arrays.asList(
+				new Filme("Filme 1", 1, 4.0),
+				new Filme("Filme 2", 2, 4.0),
+				new Filme("Filme 3", 2, 4.0)
+		);
+
+		//Ação
+		Locacao locacao = service.alugarFilme(usuario, filmes);
+
+		//Verificação
+		//4+4+3
+		assertThat(locacao.getValor(), is(11d));
+	}
+
+	@Test
+	public void deveDar50pctDescontoNoFilme4() throws FilmeSemEstoqueException, LocadoraException {
+		//cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		List<Filme> filmes = Arrays.asList(
+				new Filme("Filme 1", 1, 4.0),
+				new Filme("Filme 2", 2, 4.0),
+				new Filme("Filme 3", 2, 4.0),
+				new Filme("Filme 4", 2, 4.0)
+		);
+
+		//Ação
+		Locacao locacao = service.alugarFilme(usuario, filmes);
+
+		//Verificação
+		//4+4+3+2
+		assertThat(locacao.getValor(), is(13d));
+	}
+
+	@Test
+	public void deveDar75pctDescontoNoFilme5() throws FilmeSemEstoqueException, LocadoraException {
+		//cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		List<Filme> filmes = Arrays.asList(
+				new Filme("Filme 1", 1, 4.0),
+				new Filme("Filme 2", 2, 4.0),
+				new Filme("Filme 3", 2, 4.0),
+				new Filme("Filme 4", 2, 4.0),
+				new Filme("Filme 5", 2, 4.0)
+		);
+
+		//Ação
+		Locacao locacao = service.alugarFilme(usuario, filmes);
+
+		//Verificação
+		//4+4+3+2+1
+		assertThat(locacao.getValor(), is(14d));
+	}
+
+	@Test
+	public void deveDar100pctDescontoNoFilme6() throws FilmeSemEstoqueException, LocadoraException {
+		//cenario
+		Usuario usuario = new Usuario("Usuario 1");
+		List<Filme> filmes = Arrays.asList(
+				new Filme("Filme 1", 1, 4.0),
+				new Filme("Filme 2", 2, 4.0),
+				new Filme("Filme 3", 2, 4.0),
+				new Filme("Filme 4", 2, 4.0),
+				new Filme("Filme 5", 2, 4.0),
+				new Filme("Filme 6", 2, 4.0)
+		);
+
+		//Ação
+		Locacao locacao = service.alugarFilme(usuario, filmes);
+
+		//Verificação
+		//4+4+3+2+1+0
+		assertThat(locacao.getValor(), is(14d));
+	}
+
 }
