@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import br.ce.wcaquino.utils.DataUtils;
 import org.junit.*;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
@@ -189,6 +190,8 @@ public class LocacaoServiceTest {
 		//Verificação
 		//4+4+3+2+1+0
 		assertThat(locacao.getValor(), is(14d));
+
 	}
+
 
 }
